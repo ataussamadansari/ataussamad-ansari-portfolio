@@ -154,12 +154,6 @@ const Hero = () => {
                       color: "hover:text-neon-blue hover:glow-blue",
                     },
                     {
-                      icon: Twitter,
-                      href: "https://twitter.com/ataussamadansari",
-                      label: "Twitter",
-                      color: "hover:text-neon-cyan hover:glow-cyan",
-                    },
-                    {
                       icon: Instagram,
                       href: "https://instagram.com/sam.ans.88",
                       label: "Instagram",

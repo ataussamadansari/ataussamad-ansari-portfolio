@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Instagram, Twitter, Mail, ArrowUp, Heart } from 'lucide-react'
+import { Github, Linkedin, Instagram, Mail, ArrowUp, Heart } from 'lucide-react'
 import LightweightParticles from './LightweightParticles'
 
 const Footer = () => {
@@ -21,15 +21,8 @@ const Footer = () => {
     {
       icon: Instagram,
       href: 'https://www.instagram.com/sam.ans.88',
-      label: 'LinkedIn',
+      label: 'Instagram',
       color: 'neon-blue'
-    },
-    {
-      icon: Twitter,
-      // href: 'https://twitter.com/',
-      href: '#',
-      label: 'Twitter',
-      color: 'neon-cyan'
     },
     {
       icon: Mail,
