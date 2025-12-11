@@ -207,7 +207,7 @@ const Hero = () => {
                 className="flex flex-col sm:flex-row gap-4 lg:gap-6 pt-6 lg:pt-8 justify-center lg:justify-start"
               >
                 <motion.a
-                  href="#"
+                  href="/ataussamad_ansari-resume.pdf"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="neon-button group relative overflow-hidden text-center flex items-center justify-center"
