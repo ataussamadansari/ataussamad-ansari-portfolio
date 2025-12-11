@@ -144,7 +144,6 @@ dist
 
 # Gatsby files
 .cache/
-public
 
 # Storybook build outputs
 .out
@@ -176,10 +175,6 @@ Desktop.ini
 # Linux
 *~
 
-# Portfolio specific
-/public/cv/
-/public/resume/
-*.pdf
 
 # Backup files
 *.bak
