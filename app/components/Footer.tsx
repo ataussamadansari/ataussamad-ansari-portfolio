@@ -8,19 +8,20 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Github,
-      href: 'https://github.com',
+      href: 'https://github.com/ataussamadansari',
       label: 'GitHub',
       color: 'neon-purple'
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com',
+      href: 'https://linkedin.com/ataussamadansari',
       label: 'LinkedIn',
       color: 'neon-blue'
     },
     {
       icon: Twitter,
-      href: 'https://twitter.com',
+      // href: 'https://twitter.com/',
+      href: '#',
       label: 'Twitter',
       color: 'neon-cyan'
     },
