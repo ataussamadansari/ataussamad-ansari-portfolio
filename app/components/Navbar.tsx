@@ -1,85 +1,94 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const navRef = useRef<HTMLElement>(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    
+      setScrolled(window.scrollY > 50);
+    };
+
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('resize', handleResize)
-    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
+    };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-      document.body.style.overflow = 'hidden' // Prevent background scroll
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden"; // Prevent background scroll
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.body.style.overflow = 'unset'
-    }
-  }, [isOpen])
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Education', href: '#education' },
-    { name: 'Contact', href: '#contact' },
-  ]
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Education", href: "#education" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   const handleNavClick = (href: string) => {
-    setIsOpen(false)
+    setIsOpen(false);
     // Smooth scroll to section
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <>
+      {/* <motion.nav
+        ref={navRef}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 w-full z-50 transition-all duration-300
+           ${
+          scrolled 
+            ? 'glass-card border-b border-white/10 backdrop-blur-md shadow-lg' 
+            : 'bg-transparent'
+        }
+        `}
+      > */}
+
       <motion.nav
         ref={navRef}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'glass-card border-b border-white/10 backdrop-blur-md shadow-lg' 
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300`}
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-0 lg:px-0">
           <div className="flex items-center justify-between h-16 lg:h-20">
@@ -96,8 +105,8 @@ const Navbar = () => {
                   whileTap={{ scale: 0.95 }}
                   className="text-gray-300 hover:text-neon-cyan font-medium transition-all duration-300 relative group text-sm xl:text-base py-2"
                   onClick={(e) => {
-                    e.preventDefault()
-                    handleNavClick(item.href)
+                    e.preventDefault();
+                    handleNavClick(item.href);
                   }}
                 >
                   {item.name}
@@ -142,13 +151,13 @@ const Navbar = () => {
               className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setIsOpen(false)}
             />
-            
+
             {/* Mobile Menu */}
             <motion.div
-              initial={{ opacity: 0, x: '100%' }}
+              initial={{ opacity: 0, x: "100%" }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
               className="fixed top-0 right-0 h-full w-80 max-w-[85vw] glass-card border-l border-white/10 z-50 lg:hidden"
             >
               <div className="flex flex-col h-full">
@@ -182,8 +191,8 @@ const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1, duration: 0.3 }}
                         onClick={(e) => {
-                          e.preventDefault()
-                          handleNavClick(item.href)
+                          e.preventDefault();
+                          handleNavClick(item.href);
                         }}
                         className="block py-4 px-4 text-gray-300 hover:text-neon-cyan font-medium transition-all duration-300 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20 group"
                       >
@@ -216,7 +225,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

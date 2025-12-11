@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@types/nodemailer": "^7.0.4",
     "framer-motion": "^10.16.16",
     "gsap": "^3.12.2",
