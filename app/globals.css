@@ -224,6 +224,27 @@ body {
   box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
 }
 
+/* Navbar improvements */
+.navbar-mobile-menu {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Mobile navbar improvements */
+@media (max-width: 1024px) {
+  .mobile-menu {
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+  }
+  
+  /* Prevent body scroll when mobile menu is open */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+}
+
 /* Mobile optimizations with performance focus */
 @media (max-width: 640px) {
   .hero-title {

@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Download,
   ArrowDown,
   Github,
   Linkedin,
-  Twitter,
   Mail,
   Instagram,
 } from "lucide-react";
@@ -18,9 +17,21 @@ import gsap from "gsap";
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
-    if (titleRef.current) {
+    if (titleRef.current && !isMobile) {
       gsap.fromTo(
         titleRef.current,
         {
@@ -38,7 +49,7 @@ const Hero = () => {
         }
       );
     }
-  }, []);
+  }, [isMobile]);
 
   return (
     <section

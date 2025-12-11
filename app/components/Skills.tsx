@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { 
-  SiReact, SiNextdotjs, SiJavascript, SiTypescript,
+  SiJavascript,
   SiFlutter, SiAndroid, SiNodedotjs, SiMongodb, 
   SiFirebase, SiGithub
 } from 'react-icons/si'
@@ -76,7 +76,6 @@ const Skills = () => {
         { name: 'Flutter', icon: SiFlutter, color: '#02569b' },
         { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
         { name: 'Express.js', icon: FaServer, color: '#000000' },
-        { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
       ]
     },
     {

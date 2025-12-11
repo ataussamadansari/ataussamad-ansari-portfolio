@@ -69,7 +69,7 @@ const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-neon-purple to-neon-blue mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
           {/* Text Content */}
           <motion.div
             ref={ref}
